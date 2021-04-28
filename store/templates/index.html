@@ -15,6 +15,20 @@
 
 <body>
     <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="alert-success">
+                    {{ message }}
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
+                </div>
+            {% else %}
+                <div class="alert alert-danger"> 
+                    {{ message }}
+                </div>    
+            {% endif %}
+        {% endfor %}
+    {% endif %}
         <div class="row">
             <div class="row">
                 <h1>{{message}}</h1>
