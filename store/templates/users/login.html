@@ -12,10 +12,14 @@
     <div class="container">
         {% if messages %}
             {% for message in messages %}
-                
+                <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %}">
+                    
+                        {{ message }}
+                        <button type="button" class="btn-close"  data-bs-dismiss="alert"></button>
+                </div>
             {% endfor %}
         {% endif %}
-        
+
         <div class="row">
             <div class="col">
                 <h2>Login</h2>
