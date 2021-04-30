@@ -21,6 +21,9 @@ def index(request):
 
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+    
     if request.method == 'POST':
         username = request.POST.get('username') #El atributo POST es un diccionario
         password = request.POST.get('password') #Por eso podemos usar el método get, como argumento mandamos la clave que deseamos obtener
@@ -47,6 +50,8 @@ def register(request):
         'username':'Israel',
         'email':'isra.rios.con@gmail.com',
     })"""
+    if request.user.is_authenticated:
+        return redirect('index')
     form = RegisterForm(request.POST or None)#Si la petición es por método POST, genera un formulario con los datos que el cliente está enviando, de otro modo, genera uno con los campos vacíos
     if request.method == 'POST' and form.is_valid():
         """username = form.cleaned_data.get('username')#Diccionario

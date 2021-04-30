@@ -26,7 +26,7 @@ class RegisterForm(forms.Form):
                                 required=True,
                                 widget=forms.PasswordInput(attrs={
                                     'class':'form-control',
-                                    'id':'password',
+                                    'id':'password2',
                                     'placeholder':'Confirm Password'   
                                 }))
     
