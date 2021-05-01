@@ -5,18 +5,16 @@ from django.contrib.auth import login,logout
 from django.contrib import messages
 from .forms import RegisterForm
 from django.contrib.auth.models import User
+from products.models import Product
 
 
 def index(request):
+    products = Product.objects.all().order_by('-id')
     return render(request, 'index.html', {
         'message': 'Listado de productos',
         'tittle': 'Productos',
-        'products': [
-            {'tittle': 'Playera', 'price': 5, 'stock': True},  # producto
-            {'tittle': 'Camisa', 'price': 7, 'stock': True},
-            {'tittle': 'Mochila', 'price': 20, 'stock': False},
-            {'tittle': 'Laptop', 'price': 500, 'stock': False},
-        ]
+        'products': products,
+        
     })
 
 

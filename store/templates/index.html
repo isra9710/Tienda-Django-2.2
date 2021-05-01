@@ -7,13 +7,8 @@
                 {# Lo siguiente recorre una lista de productos #}
                 {% for product in products %}
                 <li class="list-group-item">{{ product.tittle }}
-                    
-                        {% if product.stock %}
-                        <span class="text-success">Disponible</span>
-                        {% else %}
-                        <span class="text-danger"> No disponible </span>
-                        {% endif %}
-                    </span>
+                   <span class="text-success">${{ product.price }}</span> 
+                   
                 </li>
                 {% endfor %}
             </ul>
