@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from django.contrib import messages
 from .forms import RegisterForm
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from users.models import User
 from products.models import Product
 
 
