@@ -1,18 +1,9 @@
 {% extends 'base.html'%}
 {% block content %}
-<div class="container">
-   
-            <h1>{{message}}</h1>
-            <ul>
-                {# Lo siguiente recorre una lista de productos #}
-                {% for product in products %}
-                <li class="list-group-item">{{ product.tittle }}
-                   <span class="text-success">${{ product.price }}</span> 
-                   
-                </li>
-                {% endfor %}
-            </ul>
-            {#<img src="{%static 'images/mochila.png'%}" alt="Imagen de mochila">#}
+<div class="col">
+            <h4 class="text-center">{{message}}</h4>
+            {% include 'products/snippets/search.html' %}
+            {# Lo siguiente recorre una lista de productos #}
+            {% include 'products/snippets/list.html' %}
         </div>
-
 {% endblock %}
