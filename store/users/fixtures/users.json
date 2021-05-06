@@ -1,0 +1,38 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HM9SFfWnSeAb$VKHGdCQqsqBdUMI0ZrE9h+FAkD39Vr88TweCEh5/XEI=",
+        "last_login": "2021-05-05T19:44:18.206Z",
+        "is_superuser": true,
+        "username": "israel",
+        "first_name": "Israel",
+        "last_name": "R\u00edos Contreras",
+        "email": "isra@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-05-04T01:58:08Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$ZJ4faj5jGXKh$czxj2Ory7RVBIB3j3FPPfCNdNM8MDfWGWfcWE5+iXA0=",
+        "last_login": "2021-05-04T01:59:45Z",
+        "is_superuser": false,
+        "username": "rodrigo",
+        "first_name": "Rodrigo",
+        "last_name": "R\u00edos Contreras",
+        "email": "rod@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-05-04T01:59:44Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
