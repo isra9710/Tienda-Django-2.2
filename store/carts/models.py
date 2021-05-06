@@ -19,7 +19,8 @@ class Cart(models.Model):
     def update_totals(self):
         self.update_subtotal()
         self.update_total()
-    
+        if self.order:
+            self.order.update_total()
     
     def update_subtotal(self):
         self.subtotal =sum ([ 
@@ -35,6 +36,12 @@ class Cart(models.Model):
     
     def products_related(self):
         return self.cartproducts_set.select_related('product')    
+    
+    
+    @property
+    def order(self):
+        return self.order_set.first()
+    
     
     def __str__(self):
         return self.cart_id
