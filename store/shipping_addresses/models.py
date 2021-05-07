@@ -18,11 +18,11 @@ class ShippingAddress(models.Model):
         self.default = default
         self.save()
         
-        
-    def ___str___(self):
-        return self.postal_code
-    
-    
+
     @property
     def address(self):
         return '{} - {} - {}'.format(self.city, self.state, self.country)
+    
+    
+    def ___str___(self):
+        return self.postal_code
