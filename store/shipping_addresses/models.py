@@ -12,3 +12,17 @@ class ShippingAddress(models.Model):
     postal_code = models.CharField(max_length=10, null=False, blank=False)#zip
     default = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    def update_default(self, default=False):
+        self.default = default
+        self.save()
+        
+        
+    def ___str___(self):
+        return self.postal_code
+    
+    
+    @property
+    def address(self):
+        return '{} - {} - {}'.format(self.city, self.state, self.country)
