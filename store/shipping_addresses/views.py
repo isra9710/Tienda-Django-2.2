@@ -55,7 +55,10 @@ class ShippingAddressDeleteView(LoginRequiredMixin, DeleteView):
             return redirect('shipping_addresses:shipping_addresses')
         if request.user.id != self.get_object().user_id:#Sólo el usuario al que le pertenece
             return redirect('carts:cart')
+        if self.get_object().has_orders():
+            return redirect('shipping_addresses:shipping_addresses')
         return super(ShippingAddressDeleteView, self).dispatch(request, *args, **kwargs)
+
 
 @login_required(login_url='login')
 def create(request):
@@ -89,3 +92,4 @@ def default(request, pk):
         request.user.shipping_address.update_default()
     shipping_address.update_default(True)
     return redirect('shipping_addresses:shipping_addresses')
+

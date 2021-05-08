@@ -17,12 +17,19 @@ class ShippingAddress(models.Model):
     def update_default(self, default=False):
         self.default = default
         self.save()
+       
         
+    def has_orders(self):
+        return self.order_set.count() >= 1
+    
+    
+    def ___str___(self):
+        return self.postal_code
+
 
     @property
     def address(self):
         return '{} - {} - {}'.format(self.city, self.state, self.country)
     
     
-    def ___str___(self):
-        return self.postal_code
+    
