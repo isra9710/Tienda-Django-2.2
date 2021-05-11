@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect
-from carts.utils import get_or_create_cart
+from carts.utils import get_or_create_cart, destroy_cart
 from .models import Order
-from .utils import get_or_create_order, breadcrumb
+from .utils import get_or_create_order, breadcrumb, destroy_order
 from django.contrib.auth.decorators import login_required
 from shipping_addresses.models import ShippingAddress
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -65,4 +67,32 @@ def confirm(request):
         'cart':cart,
         'order':order,
         'shipping_address':shipping_address,
+        'breadcrumb':breadcrumb(address=True, confirmation=True),
     })
+
+
+@login_required(login_url='login')
+def cancel(request):
+    cart = get_or_create_cart(request)
+    order = get_or_create_order(cart, request)
+    if request.user.id != order.user_id:
+        return redirect('carts:cart')
+    order.cancel()
+    destroy_cart(request)
+    destroy_order(request)
+    messages.error(request, 'Orden cancelada')
+    return redirect('index')
+
+
+@login_required(login_url='login')
+def complete(request):
+    cart = get_or_create_cart(request)
+    order = get_or_create_order(cart, request)
+    if request.user.id != order.user_id:
+        return redirect('carts:cart')
+    order.complete()
+    destroy_cart(request)
+    destroy_order (request)
+    messages.success(request, 'Compra completada exitosamente')
+    return redirect('index')
+
