@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden completada</title>
+</head>
+<body>
+        <h3> Hola {{ user.first_name }} {{ user.last_name }} tu pedido ha sido enviado </h3>
+        <h2>Resumen del pedido </h2>
+        {% for product in cart.products.all %}
+                        {% include 'orders/snippets/product.html' %}
+        {% endfor %}
+        <h3>Total</h3>
+        <p>{{ cart.total }}</p>
+
+        <h2>Recuerda puedes visitar la página para ver tus pedidos </h2>
+        <a href="{{ next_url}}" target="_blank">Tus pedidos</a>
+</body>
+</html>
