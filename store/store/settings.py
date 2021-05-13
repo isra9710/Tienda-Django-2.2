@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'orders',
     'promo_codes',
     'shipping_addresses',
+    'billing_profiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,8 +127,14 @@ from decouple import config
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'isra.rios.con@gmail.com'
+
+#Tu contraseña de correo, email's password
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
+
+STRIPE_PUBLIC_KEY = 'pk_test_51IqQHpDSNJVSmqRCZlqzFF5q0hJ3P9JPpuHd3sIKVvCwNDavJerVISMCpvqT6juyJvPAEyObFBK7mY5fiJh2ixcV00cNNT9Fyw'
+#Tu llave de stripe, your stripe private key
+STRIPE_PRIVATE_KEY = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
