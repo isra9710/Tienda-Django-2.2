@@ -129,6 +129,7 @@ EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'isra.rios.con@gmail.com'
 
 #Tu contraseña de correo, email's password
+
 EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
 
